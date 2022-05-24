@@ -1,0 +1,63 @@
+.outer-container{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5)),url(src/assets/images/wooden-background.jpg);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .admin{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .row{
+    background-color: whitesmoke;
+    border-radius: 30px;
+    /* box-shadow: 12px 12px 22px gray; */
+  }
+  
+  img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    min-height: 100%;
+  }
+  
+  .btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 4px;
+    font-weight: bold;
+  
+  }
+  
+  .btn1:hover{
+    background: white;
+    border: 1px solid black;
+    color: black;
+  
+  }
+  
+  p{
+    font-weight: 400;
+    color: black;
+  }
+  
+  p a{
+    color: rgb(61, 61, 248);
+    cursor: pointer;
+  }
+  
+  p a:hover{
+    color: rgb(61, 61, 248);
+    font-weight: 500;
+  }
+  

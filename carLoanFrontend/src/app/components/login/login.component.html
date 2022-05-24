@@ -1,0 +1,45 @@
+<div class="outer-container">
+    <div class="admin my-5">
+      <button class="btn btn-secondary mx-5" type="submit" (click)="adminPage()">Admin Dashboard</button>
+    </div>
+    <section class="Form">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-lg-5">
+            <img src="assets/images/car-image-login-page.jpg" class="img-fluid" alt="Car Image">
+          </div>
+          <div class="col-lg-7 px-5 pt-5">
+            <h1 class="font-weight-bold py-3">Car Loan</h1>
+            <h4>Login to your account</h4>
+            <form [formGroup]="exform" (ngSubmit)="onSubmit()">
+              <div *ngIf="err && status===500" class="alert alert-danger my-5" role="alert">
+                <strong>An Error Occured </strong>{{msg}}
+              </div>
+              <div *ngIf="err && status!==500" class="alert alert-success my-5" role="alert">
+                <strong>Success </strong>{{msg}}
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input id="email" [(ngModel)]="user.email" formControlName="email" type="email" placeholder="Enter your Email Address" class="form-control my-3 p-4">
+                  <small *ngIf="email && email.invalid && email.touched" class="text-danger">Email is required</small>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input id="password" [(ngModel)]="user.password" formControlName="password" type="password" placeholder="********" class="form-control my-3 p-4">
+                  <small *ngIf="password && password.invalid && password.touched" class="text-danger">Password is required</small>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <button id="loginButton" type="submit" [disabled]="exform.invalid" class="btn1 mt-3 mb-5">Login</button>
+                </div>
+              </div>
+              <p>Don't have an account? <a (click)="signup()" id="signupLink">Register Here</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+    

@@ -1,0 +1,135 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+    <div class="container-fluid">
+        <img src="assets/images/CarLogo.jpg" alt="Car Logo" class="logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+         <ul class="navbar-nav ms-auto">
+            <li><a (click)="addLoan()" id="applyLoan">Apply Loan</a></li>
+            <li><a (click)="loanStatus()" id="loanStatus">Loan Status</a></li>
+            <li><a (click)="profile()" id="profile">Profile</a></li>
+            <li><a (click)="logout()" id="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="outer-container">
+  <div class="container">
+    <div *ngIf="err && status===500" class="alert alert-danger my-3" role="alert">
+      <strong>An Error Occured </strong>{{msg}}
+    </div>
+    <div *ngIf="err && status===201" class="alert alert-success my-3" role="alert">
+      <strong>Success </strong>{{msg}}
+    </div>
+    <div class="heading">Apply For Loan Here</div>
+    <form [formGroup]="loanForm">
+      <h6 class="mt-3">Applicant Name</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantName" formControlName="applicantName" type="text" placeholder="Enter Applicant Name">
+          <small *ngIf="applicantName && applicantName.invalid && applicantName.touched" class="text-danger">Applicant Name is required</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Present Residing Address</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantAddress" formControlName="applicantAddress" type="text" placeholder="Present Residing Address">
+          <small *ngIf="applicantAddress && applicantAddress.invalid && applicantAddress.touched" class="text-danger">Applicant Address is required</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Contact Details</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantMobile" formControlName="applicantMobile" type="text" placeholder="Enter Mobile Number">
+          <small *ngIf="applicantMobile && applicantMobile.invalid && applicantMobile.touched" class="text-danger">Enter a valid Mobile Number</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Email Id</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantEmail" formControlName="applicantEmail" type="text" placeholder="Enter Applicant EmailId">
+          <small *ngIf="applicantEmail && applicantEmail.invalid && applicantEmail.touched" class="text-danger">Applicant Email Id is required</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Aadhar Number</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantAadhar" formControlName="applicantAadhar" type="text" placeholder="Enter Applicant Aadhar Number">
+          <small *ngIf="applicantAadhar && applicantAadhar.invalid && applicantAadhar.touched" class="text-danger">Enter a valid Aadhar Number</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Pan Number</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantPan" formControlName="applicantPan" type="text" placeholder="Enter Applicant Pan Number">
+          <small *ngIf="applicantPan && applicantPan.invalid && applicantPan.touched" class="text-danger">Enter a valid Pan Number</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Applicant Salary</h6>
+      <div class="card-details">
+        <div class="card-box mb-3">
+          <input [(ngModel)]="loan.applicantSalary" formControlName="applicantSalary"  type="text" placeholder="Enter Applicant Salary">
+          <small *ngIf="applicantSalary && applicantSalary.invalid && applicantSalary.touched" class="text-danger">Applicant Salary is required</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Loan Amount Required</h6>
+      <div class="card-details">
+        <div class="card-box col-md-6">
+          <input [(ngModel)]="loan.loanAmountRequired" formControlName="loanAmountRequired"  type="text" placeholder="Enter Loan Amount Required">
+          <small *ngIf="loanAmountRequired && loanAmountRequired.invalid && loanAmountRequired.touched" class="text-danger">Loan Amount is required</small>
+        </div>
+      </div>
+      <hr>
+      <h6>Loan Repayment Months</h6>
+      <div class="card-details">
+        <div class="card-box col-md-6">
+          <input [(ngModel)]="loan.loanRepaymentMonths" formControlName="loanRepaymentMonths"  type="text" placeholder="Enter Loan Repayment Months">
+          <small *ngIf="loanRepaymentMonths && loanRepaymentMonths.invalid && loanRepaymentMonths.touched" class="text-danger">Loan Repayment Month is required</small>
+        </div>
+      </div>
+      <hr>
+      <div class="carddetails">
+        <div class="card-box col-md-5">
+          <h6 class="detaiils">Upload Documents (Mandatory *)</h6>
+          <div class="dropdown">
+            <span id="dropdown-text">Please pick a type : </span>
+            <select (change)="selectChangeHandler($event)" formControlName="selectItemList">
+              <option class="dropdown-item" value=".jpeg">.jpeg</option>
+              <option class="dropdown-item" value=".jpg">.jpg</option>
+              <option class="dropdown-item" value=".png">.png</option>
+              <option class="dropdown-item" value=".pdf">.pdf</option>
+              <option class="dropdown-item" value=".doc">.doc</option>
+            </select>
+          </div>
+          <small *ngIf="selectItemList && selectItemList.invalid && selectItemList.touched" class="text-danger">Please choose one item from the dropdown</small>
+        </div>
+
+        <div class="card-box col-md-5 offset-2">
+          <h6 class="detaiils">Images or Documents (Upload below 2 MB)</h6>
+          <div class="custom-file mb-3">
+            <input [disabled]="selectedType===null || selectedType===''" type="file" accept={{selectedType}} id="myFile" name="filename2" (change)="save($event)">
+          </div>
+        </div>
+
+        <div class="card-box col-md-5">
+          <button [disabled]="loanForm.invalid" (click)="applyLoan()"  id="submitBtn" class="btn btn-danger mt-3">Upload Documents</button>
+        </div>
+      </div>
+      <hr>
+
+      <div class="button">
+        <input [disabled]="fileName===null || fileName===''" (click)="uploadDocument()" type="submit" value="Apply for Loan">
+      </div>
+    </form>
+  </div>
+  </div>

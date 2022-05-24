@@ -1,0 +1,30 @@
+
+<div class="outer-container">
+  <div class="container">
+    <h1>Register</h1>
+    <form [formGroup]="exform" (ngSubmit)="onSubmit()">
+      <div class="textbox">
+        <i class="fas fa-envelope"></i>
+        <input [(ngModel)]="user.email" formControlName="email" type="text" placeholder="Email Id"><br>
+        <small *ngIf="email && email.invalid && email.touched" class="text-danger">Email is mandatory</small>
+      </div>
+      <div class="textbox">
+        <i class="fas fa-user"></i>
+        <input [(ngModel)]="user.username" formControlName="username" type="text" placeholder="Username">
+        <small *ngIf="username && username.invalid && username.touched" class="text-danger">Username is mandatory</small>
+      </div>
+      <div class="textbox">
+        <i class="fas fa-phone"></i>
+        <input [(ngModel)]="user.mobileNumber" formControlName="mobileNumber" type="text" placeholder="Contact Number"><br>
+        <small *ngIf="mobileNumber && mobileNumber.invalid && mobileNumber.touched" class="text-danger">Mobile Number is required</small>
+      </div>
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input [(ngModel)]="user.password" formControlName="password" type="password" placeholder="Password">
+        <small *ngIf="password && password.invalid && password.touched" class="text-danger">Password is required</small>
+      </div>
+      <input [disabled]="exform.invalid" type="submit" class="btn" value="Sign Up">
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="banner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+      <div class="container-fluid">
+          <img src="assets/images/CarLogo.jpg" alt="" class="logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+           <ul class="navbar-nav ms-auto">
+              <li><a (click)="viewLoan()">Applied Loans</a></li>
+              <li><a (click)="trackLoan()">Loan Details</a></li>
+              <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+      <div class="container"  *ngFor="let loan of getAllLoans;let i =index;" id="statusGrid{{i}}">
+        <div class="row my-3">
+          <div class="col-md-4 py-3"><strong>Applicant Name: </strong>{{loan.applicantName}}</div>
+          <div class="col-md-4 py-3"><strong>Applicant Phone Number: </strong>{{loan.applicantMobile}}</div>
+          <div class="col-md-4 py-3"><strong>Applicant Pan Number: </strong>{{loan.applicantPan}}</div>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-4 py-3"><strong>Applicant Address: </strong>{{loan.applicantAddress}}</div>
+          <div class="col-md-4 py-3"><strong>Applicant Loan Id: </strong>{{loan.loanId}}</div>
+          <div class="col-md-4 py-3"><strong>Applicant Salary: </strong>{{loan.loanAmountRequired}}</div>
+        </div>
+        <div class="row my-3">
+          <div class="col-md-4 py-3"><strong>Applicant Email: </strong>{{loan.applicantEmail}}</div>
+          <div class="col-md-4 py-3"><strong>Applicant Aadhar: </strong>{{loan.applicantAadhar}}</div>
+          <!--<div class="dropdown col-md-4 py-3">
+            <a class="btn btn-secondary dropdown-toggle" href="#" style="background-color:darkslategrey;" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Pending
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" style="background-color: green; color:whitesmoke;" (click)="approveLoan">Approve for loan</a></li>
+              <li><a class="dropdown-item" style="background-color: red; color:whitesmoke;" (click)="rejectLoan">Reject</a></li>
+            </ul>
+          </div>-->
+          <div class="col-md-4 py-3">
+            <button type="button" (click)="downloadFile(loan.loanId)" class="btn btn-info">Download Document</button>
+          </div>
+        </div>
+      </div>
+     
+      
+  </div>
+  

@@ -1,0 +1,31 @@
+<div class="banner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+      <div class="container-fluid">
+          <img src="assets/images/CarLogo.jpg" alt="" class="logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+           <ul class="navbar-nav ms-auto">
+            <li><a (click)="viewLoan()">Applied Loans</a></li>
+            <li><a (click)="trackLoan()">Loan Details</a></li>
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div *ngIf="err && status===500" class="alert alert-danger my-5" role="alert">
+        <strong>An Error Occured </strong>{{msg}}
+      </div>
+      
+      <div class="col">
+        <input type="text" placeholder="Enter  Loan ID to search" [(ngModel)]="loanId">
+      </div>
+      <div>
+        <button class="track-loan" type="button" (click)="trackLoan()">Track Loan</button>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,238 @@
+*{
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .navbar{
+    margin: auto;
+    padding: 10px 0;
+    z-index: 1;
+  }
+  
+  .logo{
+    width: 150px;
+    cursor: pointer;
+  }
+  
+  .navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    padding: 10px 0;
+  }
+  
+  .navbar-toggler-icon{
+    font-size: 21px;
+    background-color: #fff;
+  }
+  
+  .navbar-toggler{
+    font-size: 21px;
+    background: #fff;
+  }
+  
+  .navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .navbar-nav li a{
+    cursor: pointer;
+  }
+  
+  .navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+  
+  .navbar ul li:hover::after{
+    width: 100%;
+  }
+  
+  .outer-container{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(src/assets/images/car-insurance.jpg);
+    background-position: center;
+    background-size: cover;
+    flex-direction: column;
+  }
+  
+  .container{
+    max-width: 800px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 25px;
+    min-height: 100vh;
+    background: linear-gradient(rgba(143, 5, 5, 0.3),rgba(10, 4, 73, 0.3));
+    margin-top: 100px;
+  }
+
+  .alert{
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .container .heading{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    padding: 0 0 20px 0;
+  }
+  
+  .container .heading::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #71b7e6, #9b5b);
+  }
+  
+  .container form .card-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .container form .carddetails{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  form .card-details .card-box{
+    width: 100%;
+  }
+  
+  .card-details .card-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .card-details .card-box input:focus,
+  .card-details .card-box input:valid{
+    border-color: #9b59b6;
+  }
+
+  .track-loan{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-loan:hover{
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+form .button{
+  text-align: center;
+}
+
+form .button input{
+  padding: 10px 0;
+  margin-top: 10px;
+  height: 100%;
+  width: 50%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  background: linear-gradient(rgba(143, 5, 5, 0.3),rgba(10, 4, 73, 0.3));
+}
+
+form .button input:hover{
+  background: linear-gradient(135deg, #989bec, #fcc3c3ca);
+}
+
+  
+  #myFile{
+    border: none;
+  }
+  
+  .dropdown{
+    height: 45px;
+    width: 100%;
+    background: rgb(128, 127, 127);
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  #dropdown-text{
+    font-size: 17px;
+  }
+  
+  select{
+    height: 45px;
+    width: 30%;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgb(128, 127, 127);
+    color: white;
+  }
+  
+  select option{
+    color: white;
+  }
+  
+  @media (max-width:584px){
+    .container{
+      max-width: 100%;
+    }
+    form .card-details .card-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  
+    .container form .card-details{
+      max-height: 300px;
+      overflow: scroll;
+    }
+  
+    .card-details::_webkit-scrollbar{
+      width: 0;
+    }
+  
+  }
+  
